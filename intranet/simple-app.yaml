@@ -25,6 +25,8 @@ spec:
         name: simple-app
         resources: {}
         imagePullPolicy: Always
+        secretRef:
+          name: dockerhub-config
 status: {}
 ---
 apiVersion: v1
@@ -47,8 +49,8 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/backend-protocol: HTTP
-    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-    nginx.ingress.kubernetes.io/upstream-hash-by: "$request_uri"
+    # nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    # nginx.ingress.kubernetes.io/upstream-hash-by: "$request_uri"
   name: simple-app-ingress
 spec:
   rules:
