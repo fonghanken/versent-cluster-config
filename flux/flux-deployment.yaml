@@ -52,12 +52,6 @@ spec:
       # - name: kubeconfig
       #   configMap:
       #     name: flux-kubeconfig
-
-      # initContainers:
-      #   - name: init
-      #     image: 529525550972.dkr.ecr.ap-southeast-1.amazonaws.com/apex-utility:latest
-      #     command: ['sh', '-c', "nslookup nexus-docker.ship.gov.sg && wget https://nexus-docker.ship.gov.sg:443 || true && sleep 30"]
-
       containers:
       - name: flux
         # There are no ":latest" images for flux. Find the most recent
