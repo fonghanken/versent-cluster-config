@@ -7,7 +7,7 @@ metadata:
     app: simple-app
   name: simple-app
   annotations:
-    flux.weave.works/tag.pod: "glob:simple-app"
+    flux.weave.works/tag.simple-app: "glob:latest"
     flux.weave.works/automated: "true"
 spec:
   replicas: 1
@@ -22,7 +22,7 @@ spec:
         app: simple-app
     spec:
       containers:
-      - image: docker.io/hanken16/simple-app:1.0.0
+      - image: docker.io/hanken16/simple-app:latest
         name: simple-app
         resources: {}
         imagePullPolicy: Always
