@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  creationTimestamp: null
+  name: hello-world-ing
+spec:
+  rules:
+  - host: hello-world.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: hello-world
+            port:
+              number: 80
+        path: /
+        pathType: Exact
+status:
+  loadBalancer: {}

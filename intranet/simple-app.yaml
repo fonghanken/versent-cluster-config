@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: simple-app
+  name: simple-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: simple-app
+    spec:
+      containers:
+      - image: docker.io/hanken16/simple-app:1.0.0
+        name: simple-app
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple-app
+spec:
+  selector:
+    app: simple-app
+  ports:
+  - name: http
+    protocol: TCP
+    port: 443
+    targetPort: 80
+  type: ClusterIP #LoadBalancer
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/backend-protocol: HTTP
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/upstream-hash-by: "$request_uri"
+  #namespace: akana-pm
+  name: simple-app-ingress
+spec:
+  rules:
+  - host: simple-app.com
+    http:
+      paths:
+      - backend:
+          serviceName: simple-app
+          servicePort: 443
+        pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - simple-app.com
+      secretName: selfsigned-cert-tls
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: test-selfsigned
+  #namespace: cert-manager
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: selfsigned-cert
+  #namespace: cert-manager
+spec:
+  dnsNames:
+    - simple-app.com
+  secretName: selfsigned-cert-tls
+  issuerRef:
+    name: test-selfsigned
