@@ -62,14 +62,6 @@ spec:
       secretName: selfsigned-cert-tls
 ---
 apiVersion: cert-manager.io/v1
-kind: Issuer
-metadata:
-  name: test-selfsigned
-  #namespace: cert-manager
-spec:
-  selfSigned: {}
----
-apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: selfsigned-cert
