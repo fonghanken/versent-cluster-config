@@ -25,9 +25,9 @@ spec:
       - image: docker.io/hanken16/simple-app:latest
         name: simple-app
         resources: {}
-        imagePullPolicy: Always
-        imagePullSecrets:
-        - name: dockerhub-config
+      imagePullPolicy: Always
+      imagePullSecrets:
+      - name: dockerhub-config
 status: {}
 ---
 apiVersion: v1
