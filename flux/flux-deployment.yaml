@@ -41,7 +41,7 @@ spec:
       # https://github.com/weaveworks/flux/blob/master/site/standalone-setup.md#using-a-private-git-host
       - name: ssh-config
         secret:
-          name: flux-ssh-config
+          secretName: flux-ssh-config
           defaultMode: 0400 # when mounted read-only, we won't be able to chmod
           
       # The following volume is for using a customised .kube/config,
