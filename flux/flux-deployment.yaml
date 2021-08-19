@@ -40,16 +40,10 @@ spec:
       # mount it into the container, below. See
       # https://github.com/weaveworks/flux/blob/master/site/standalone-setup.md#using-a-private-git-host
       - name: ssh-config
-        configMap:
+        secret:
           name: flux-ssh-config
-      - name: nexus-ca
-        configMap:
-          name: nexus-ca
-          defaultMode: 420
-      # - name: flux-token-8xs88
-      #   secret:
-      #     secretName: flux-token-8xs88
-      #     defaultMode: 420
+          defaultMode: 0400 # when mounted read-only, we won't be able to chmod
+          
       # The following volume is for using a customised .kube/config,
       # which you will need to do if you wish to have a different
       # default namespace. You will also need to provide the configmap
@@ -69,7 +63,7 @@ spec:
         # There are no ":latest" images for flux. Find the most recent
         # release or image version at https://quay.io/weaveworks/flux
         # and replace the tag here.
-        image: nexus-docker.ship.gov.sg/fluxcd/flux:1.14.2
+        image: docker.io/fluxcd/flux:1.23.2
         imagePullPolicy: IfNotPresent
         resources:
           requests:
@@ -83,14 +77,9 @@ spec:
           #readOnly: true # this will be the case perforce in K8s >=1.10
         - name: git-keygen
           mountPath: /var/fluxd/keygen # to match location given in image's /etc/ssh/config
-
         # Include this if you need to mount a customised known_hosts
-        # file; you'll also need the volume declared above.
-        - name: ssh-config
-          mountPath: /root/.ssh
+        # file; you'll also need the volume declared above.clear
 
-        - name: nexus-ca
-          mountPath: /usr/local/share/ca-certificates
         # - name: flux-token-8xs88
         #   readOnly: true
         #   mountPath: /var/run/secrets/
@@ -100,13 +89,6 @@ spec:
         # used by kuebctl.
         # - name: kubeconfig
         #   mountPath: /etc/fluxd/kube
-
-        # Include this to point kubectl at a different config; you
-        # will need to do this if you have mounted an alternate config
-        # from a configmap, as in commented blocks above.
-        # env:
-        # - name: KUBECONFIG
-        #   value: /etc/fluxd/kube/config
 
         args:
         # if you deployed memcached in a different namespace to flux,
@@ -120,8 +102,7 @@ spec:
         - --ssh-keygen-dir=/var/fluxd/keygen
 
         # replace or remove the following URL
-        - --git-url=ssh://git@bitbucket-ssh.ship.gov.sg:7999/apex2/apex-cluster-config.git
-        - --git-branch=gw12
+        - --git-url=ssh://git@github.com/fonghanken/versent-cluster-config.git
         - --git-path=intranet
 
         # include these next two to connect to an "upstream" service
@@ -137,4 +118,11 @@ spec:
         - --sync-interval=1m
         - --git-ci-skip=true
         - --sync-garbage-collection=true
-
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  name: cicd
+spec: {}
+status: {}

@@ -72,3 +72,11 @@ spec:
   secretName: selfsigned-cert-tls
   issuerRef:
     name: test-selfsigned
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  name: test-new-ns
+spec: {}
+status: {}
