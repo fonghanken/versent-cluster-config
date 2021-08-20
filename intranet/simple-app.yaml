@@ -22,7 +22,7 @@ spec:
         app: simple-app
     spec:
       containers:
-      - image: docker.io/hanken16/simple-app:latest
+      - image: docker.io/hanken16/simple-app:1.0.0
         name: simple-app
         resources: {}
         imagePullPolicy: Always
@@ -89,7 +89,7 @@ metadata:
   #namespace: cert-manager
 spec:
   dnsNames:
-    - simple-app.com
+  - simple-app.com
   secretName: selfsigned-cert-tls
   issuerRef:
     name: test-selfsigned
