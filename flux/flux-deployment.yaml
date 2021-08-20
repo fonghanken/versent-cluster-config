@@ -116,8 +116,8 @@ spec:
         - --manifest-generation=true
         - --git-label=flux-sync
         - --git-sync-tag=flux-sync
-        - --automation-interval=55m
-        - --registry-poll-interval=55m
+        # - --automation-interval=55m
+        # - --registry-poll-interval=55m
         - --registry-rps=200
         - --registry-burst=125
         - --registry-trace=false
