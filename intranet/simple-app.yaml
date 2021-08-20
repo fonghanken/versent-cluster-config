@@ -25,7 +25,7 @@ spec:
       - image: docker.io/hanken16/simple-app:latest
         name: simple-app
         resources: {}
-      imagePullPolicy: Always
+        imagePullPolicy: Always
       imagePullSecrets:
       - name: dockerhub-config
 status: {}
@@ -89,3 +89,11 @@ spec:
   secretName: selfsigned-cert-tls
   issuerRef:
     name: test-selfsigned
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dockerhub-config
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyJodWIuZG9ja2VyLmlvIjp7ImF1dGgiOiJhR0Z1YTJWdU1UWTZjWGRsTVRJelFWTkVJVUFqQ2c9PSJ9fX0K
+type: kubernetes.io/dockerconfigjson
