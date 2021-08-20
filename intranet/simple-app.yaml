@@ -7,7 +7,7 @@ metadata:
     app: simple-app
   name: simple-app
   annotations:
-    flux.weave.works/tag.simple-app: "simple-app:latest"
+    #flux.weave.works/tag.simple-app: "simple-app:latest"
     flux.weave.works/automated: "true"
 spec:
   replicas: 1
