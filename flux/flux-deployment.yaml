@@ -120,8 +120,7 @@ spec:
         # - --registry-poll-interval=55m
         - --registry-rps=200
         - --registry-burst=125
-        - --registry-trace=false
-        - --registry-exclude-image=index.docker.io/*
+        - --registry-exclude-image=index.docker.io/kubernetesui/*,index.docker.io/library/*
         #- --registry-exclude-image=registry.redhat.io/*,docker.io/*,index.docker.io/*,quay.io/*,k8s.gcr.io/*,_memcached._tcp.memcached/*
 ---
 apiVersion: v1
