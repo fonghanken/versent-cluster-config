@@ -55,12 +55,12 @@ metadata:
   name: simple-app-ingress
 spec:
   rules:
-  - host: hello-world.com
+  - host: simple-app.com
     http:
       paths:
       - backend:
           service:
-            name: hello-world
+            name: simple-app
             port:
               number: 443
         path: /
