@@ -70,10 +70,22 @@ spec:
     - simple-app.com
     secretName: selfsigned-cert-tls
 ---
-apiVersion: v1
-kind: Namespace
+apiVersion: cert-manager.io/v1
+kind: Issuer
 metadata:
-  creationTimestamp:
-  name: test-new-ns
-spec: {}
-status: {}
+  name: test-selfsigned
+  #namespace: cert-manager
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: selfsigned-cert
+  #namespace: cert-manager
+spec:
+  dnsNames:
+    - simple-app.com
+  secretName: selfsigned-cert-tls
+  issuerRef:
+    name: test-selfsigned
