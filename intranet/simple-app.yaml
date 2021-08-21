@@ -7,8 +7,8 @@ metadata:
     app: simple-app
   name: simple-app
   annotations:
-    fluxcd.io/tag.simple-app: glob:stg-*
-    fluxcd.io/automated: "true"
+    flux.weave.works/tag.simple-app: glob:stg-*
+    flux.weave.works/automated: "true"
 spec:
   replicas: 1
   selector:
