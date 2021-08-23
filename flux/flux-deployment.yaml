@@ -97,7 +97,7 @@ spec:
 
         # replace or remove the following URL
         - --git-url=ssh://git@github.com/fonghanken/versent-cluster-config.git
-        - --git-path=intranet
+        - --git-path=flux,intranet
 
         # include these next two to connect to an "upstream" service
         # (e.g., Weave Cloud). The token is particular to the service.
@@ -121,7 +121,7 @@ spec:
         - --registry-rps=200
         - --registry-burst=125
         - --registry-exclude-image=*/kubernetesui/*,*/library/*
-        - --registry-include-image=docker.io/hanken16/*
+        #- --registry-include-image=docker.io/hanken16/*
         #- --registry-exclude-image=registry.redhat.io/*,docker.io/*,index.docker.io/*,quay.io/*,k8s.gcr.io/*,_memcached._tcp.memcached/*
 ---
 apiVersion: v1
