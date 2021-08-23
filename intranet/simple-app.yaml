@@ -22,7 +22,7 @@ spec:
         app: simple-app
     spec:
       containers:
-      - image: docker.io/hanken16/simple-app:stg-04bae6a
+      - image: docker.io/hanken16/simple-app:stg-5d8aae4
         name: simple-app
         resources: {}
         imagePullPolicy: Always
