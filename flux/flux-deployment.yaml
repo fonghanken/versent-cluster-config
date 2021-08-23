@@ -123,11 +123,3 @@ spec:
         - --registry-exclude-image=*/kubernetesui/*,*/library/*
         #- --registry-include-image=docker.io/hanken16/*
         #- --registry-exclude-image=registry.redhat.io/*,docker.io/*,index.docker.io/*,quay.io/*,k8s.gcr.io/*,_memcached._tcp.memcached/*
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  creationTimestamp: null
-  name: cicd
-spec: {}
-status: {}
