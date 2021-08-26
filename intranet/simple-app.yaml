@@ -27,8 +27,8 @@ spec:
         name: simple-app
         resources: {}
         imagePullPolicy: Always
-      #imagePullSecrets:
-      #- name: dockerhub-config
+      imagePullSecrets:
+      - name: dockerhub-config
 status: {}
 ---
 apiVersion: v1
