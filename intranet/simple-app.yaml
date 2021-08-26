@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         #public.ecr.aws/e0j8j8j7/versent-simple-app:latest
-      - image: docker.io/hanken16/simple-app:stg-9b9288b
+      - image: docker.io/hanken16/simple-app:stg-075f188
         name: simple-app
         resources: {}
         imagePullPolicy: Always
