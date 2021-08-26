@@ -1,4 +1,11 @@
 ---
+# The service account, cluster roles, and cluster role binding are
+# only needed for Kubernetes with role-based access control (RBAC).
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cicd
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
