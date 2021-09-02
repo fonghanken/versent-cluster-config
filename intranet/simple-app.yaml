@@ -73,7 +73,7 @@ spec:
         pathType: Prefix
   tls:
   - hosts:
-    - simple-app.com
+    - simple-app.innovation-1.versent-innovation.au1.staxapp.cloud
     secretName: selfsigned-cert-tls
 ---
 apiVersion: cert-manager.io/v1
