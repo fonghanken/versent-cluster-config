@@ -68,7 +68,7 @@ spec:
           service:
             name: simple-app
             port:
-              number: 80
+              number: 443
         path: /
         pathType: Prefix
   tls:
