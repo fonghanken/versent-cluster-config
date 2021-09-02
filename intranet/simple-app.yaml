@@ -61,7 +61,7 @@ metadata:
   name: simple-app-ingress
 spec:
   rules:
-  - host: simple-app.com
+  - host: simple-app.innovation-1.versent-innovation.au1.staxapp.cloud
     http:
       paths:
       - backend:
@@ -91,7 +91,7 @@ metadata:
   #namespace: cert-manager
 spec:
   dnsNames:
-  - simple-app.com
+  - simple-app.innovation-1.versent-innovation.au1.staxapp.cloud
   secretName: selfsigned-cert-tls
   issuerRef:
     name: test-selfsigned
