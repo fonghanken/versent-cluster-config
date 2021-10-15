@@ -140,5 +140,7 @@ spec:
         - --registry-rps=200
         - --registry-burst=125
         - --registry-exclude-image=*/kubernetesui/*,*/library/*
+        - --sync-interval=525600m
+        - --git-poll-interval=525600m
         #- --registry-include-image=docker.io/hanken16/*
         #- --registry-exclude-image=registry.redhat.io/*,docker.io/*,index.docker.io/*,quay.io/*,k8s.gcr.io/*,_memcached._tcp.memcached/*
