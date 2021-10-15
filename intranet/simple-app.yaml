@@ -73,6 +73,13 @@ spec:
               number: 443
         path: /
         pathType: Prefix
+      - backend:
+          service:
+            name: simple-app
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
   tls:
   - hosts:
     - simple-app.innovation-1.versent-innovation.au1.staxapp.cloud
