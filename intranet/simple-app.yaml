@@ -44,7 +44,7 @@ spec:
   ports:
   - name: https
     protocol: TCP
-    port: 443
+    port: 8888
     targetPort: 80
   - name: http
     protocol: TCP
