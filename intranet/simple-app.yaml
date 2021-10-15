@@ -27,6 +27,9 @@ spec:
         name: simple-app
         resources: {}
         imagePullPolicy: Always
+        ports:
+        - containerPort: 8888
+          protocol: TCP
       imagePullSecrets:
       - name: dockerhub-config
 status: {}
